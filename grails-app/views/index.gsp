@@ -79,36 +79,5 @@
         </section>
     </div>
 
-<div class="container content">
-    <div class="login">
-        <ul style="font-family:微软雅黑;font-size:40px;margin-left:130px;margin-top:100px;">
-            <h4 style="color:#205E74">煤层气集输系统</h4>
-        </ul>
-        <div  style="margin-rigtht:10px;margin-top:-100px;">
-            <div class="login-icon" style="width:auto;margin-top:90px;margin-right:10px;float:right;">
-                <img src="images/logo.ico" alt="煤层气集输系统" />
-            </div>
-            <form id="login-form" action="login.action" method="post" style="margin-left: 250;">
-                <div class="login-form"  style="margin-bottom:20px;float:right;width:300px;">
-                    <div class="control-group">
-                        <input type="text" class="login-field" value="" placeholder="输入用户名" id="username" name="username"/>
-                        <label class="login-field-icon fui-man-16" for="username"></label>
-                    </div>
-
-                    <div class="control-group">
-                        <input type="password" class="login-field" value="" placeholder="输入密码" id="password" name="password" />
-                        <label class="login-field-icon fui-lock-16" for="password"></label>
-                    </div>
-
-                    <div><input type="submit" class="btn btn-warning btn-block" value="登录" /></div>
-                    <div><input type="button" class="btn btn-primary btn-block" value="注册" onclick="$('#register_modal').modal()"/></div>
-
-                </div>
-            </form>
-        </div>
-    </div>
-
-</div>
-
 </body>
 </html>
