@@ -12,7 +12,6 @@ class HomeController {
         params.user = session.user
         def menuItems = systemCommonService.getAllTopLevelMenus(params)
         println("${menuItems}")
-        session.menuItems = menuItems
         def subMenuItems = []
         menuItems.eachWithIndex { Object entry, int i ->
             def ms = []
@@ -21,7 +20,10 @@ class HomeController {
             }
             subMenuItems.add(ms)
         }
+        //在会话中保存第二级菜单
         session.subMenuItems = subMenuItems
+        //在会话中保存第一级菜单
+        session.systemMenuList = menuItems
     }
 
     /*

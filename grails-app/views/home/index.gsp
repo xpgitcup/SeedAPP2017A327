@@ -9,8 +9,12 @@
 <html>
 <head>
     <meta name="layout" content="main">
+    <!-- 设置当前域类的名字，以后的所有命名规则都基于这个名字 -->
+    <g:set var="entityName" value="Home"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sample title</title>
+    <!-- 设置标题，如果没有特殊情况，标题叫这样了。 -->
+    <title>${entityName}维护</title>
+    <asset:javascript src="cn/edu/cup/os/${entityName}.js"/>
 </head>
 
 <body>

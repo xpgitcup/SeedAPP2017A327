@@ -38,44 +38,49 @@
 
     <g:layoutHead/>
 </head>
+
 <body>
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- 这是左上角图标，来自于白色的圣杯的大图的缩小版  -->
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
-                </a>
-            </div>
-            <!-- 这里插入导航按钮 -->
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- 这是左上角图标，来自于白色的圣杯的大图的缩小版  -->
+            <a class="navbar-brand" href="/#">
+                <i class="fa grails-icon">
+                    <asset:image src="grails-cupsonly-logo-white.svg"/>
+                </i> Grails
+                <!--这是程序的标题-->
+                <label>
+                    ${cn.edu.cup.system.SystemTitle.last()?.applicationTitle}
+                </label>
+            </a>
+        </div>
+        <!-- 这里插入导航按钮 -->
+        <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+            <ul class="nav navbar-nav navbar-right">
+                <g:pageProperty name="page.nav"/>
+            </ul>
         </div>
     </div>
+</div>
 
-    <!-- 这里插入显示主体 -->
-    <g:layoutBody/>
+<!-- 这里插入显示主体 -->
+<g:layoutBody/>
 
-    <!-- 这里是页脚 -->
-    <div class="footer" role="contentinfo"></div>
+<!-- 这里是页脚 -->
+<div class="footer" role="contentinfo"></div>
 
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
-    </div>
+<div id="spinner" class="spinner" style="display:none;">
+    <g:message code="spinner.alt" default="Loading&hellip;"/>
+</div>
 
-    <!--asset:javascript src="application.js"/-->
+<!--asset:javascript src="application.js"/-->
 
 </body>
 </html>
