@@ -48,7 +48,6 @@ class InitService {
     /*
     * 初始化系统数据
     * */
-
     def initSystemData(domains) {
         println("初始化系统数据......")
         initSystemUsers()
@@ -58,7 +57,6 @@ class InitService {
     /*
     * 初始化系统菜单
     * */
-
     def initSystemMenuItems(domains) {
         if (SystemMenu.count() < 1) {
             def m0 = new SystemMenu(
@@ -232,6 +230,19 @@ class InitService {
         fillSampleChat()
         //数据字典
         fillSampleDataKey()
+        //
+        fillSampleTitle()
+    }
+
+    def fillSampleTitle() {
+        println("初始化系统标题......")
+        if (SystemTitle.count()<1) {
+            def systemTitle = new SystemTitle(
+                    applicationTitle: "种子程序",
+                    applicationLogo: "?????"
+            )
+            systemTitle.save(true)
+        }
     }
 
     private void fillSampleDataKey() {

@@ -24,7 +24,7 @@
     border-radius: 6px;
     background-position: 0.7em center;
     background-repeat: no-repeat;
-    background-image: url(../../images/skin/house.png);
+    background-image: url("../../../skin/house.png");
 }
 
 /*页眉右侧的显示信息*/
@@ -76,7 +76,7 @@
     margin-top: 5%;
     width: 521px;
     height: 375px;
-    background: url(../../images/cup/login_bg_a.png) repeat-x;
+    background: url("../../../cn/edu/cup/login_bg_a.png") repeat-x;
     padding-top: 10px;
     border-radius: 6px;
     border: 1px;
@@ -107,7 +107,7 @@
 }
 
 body {
-    background : url(../../images/cup/img_bg_haven.jpg);
+    background : url("../../../cn/edu/cup/img_bg_haven.jpg");
     background-position:center;
     background-size: cover; /*这个是正确的*/
 }
