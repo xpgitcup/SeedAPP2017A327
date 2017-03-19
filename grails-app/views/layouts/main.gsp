@@ -49,12 +49,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <!-- 这是左上角图标，来自于白色的圣杯的大图的缩小版  -->
                 <a class="navbar-brand" href="/#">
                     <i class="fa grails-icon">
                         <asset:image src="grails-cupsonly-logo-white.svg"/>
                     </i> Grails
                 </a>
             </div>
+            <!-- 这里插入导航按钮 -->
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
                 <ul class="nav navbar-nav navbar-right">
                     <g:pageProperty name="page.nav" />
@@ -63,8 +65,10 @@
         </div>
     </div>
 
+    <!-- 这里插入显示主体 -->
     <g:layoutBody/>
 
+    <!-- 这里是页脚 -->
     <div class="footer" role="contentinfo"></div>
 
     <div id="spinner" class="spinner" style="display:none;">
