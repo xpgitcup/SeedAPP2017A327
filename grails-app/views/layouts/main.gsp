@@ -8,6 +8,12 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    <!-- Loading Bootstrap -->
+    <asset:stylesheet src="flat-ui/css/vendor/bootstrap/css/bootstrap.min.css"/>
+    <!-- Loading Flat UI -->
+    <!--link href="dist/css/flat-ui.css" rel="stylesheet"-->
+    <asset:stylesheet src="flat-ui/css/flat-ui.min.css"/>
+
     <asset:stylesheet src="application.css"/>
 
     <!--引入easyui的相关内容-->
