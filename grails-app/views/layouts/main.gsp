@@ -53,18 +53,33 @@
             <!-- 这是左上角图标，来自于白色的圣杯的大图的缩小版  -->
             <a class="navbar-brand" href="/#">
                 <i class="fa grails-icon">
-                    <asset:image src="grails-cupsonly-logo-white.svg"/>
-                </i> Grails
-                <!--这是程序的标题-->
-                <label>
-                    ${cn.edu.cup.system.SystemTitle.last()?.applicationTitle}
-                </label>
+                    <!--asset:image src="grails-cupsonly-logo-white.svg"/-->
+                    <asset:image src="cn/edu/cup/${cn.edu.cup.system.SystemTitle.last()?.applicationLogo}"/>
+                </i> <!--Grails-->
             </a>
+            <!--这是程序的标题-->
+            <label class="applicationTitle">
+                ${cn.edu.cup.system.SystemTitle.last()?.applicationTitle}
+            </label>
         </div>
         <!-- 这里插入导航按钮 -->
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
             <ul class="nav navbar-nav navbar-right">
+                <!-- 插入共同的菜单 -->
+                <!-- 下面插入各个具体页面各自的菜单 -->
                 <g:pageProperty name="page.nav"/>
+                <!-- 显示当前用户 -->
+                <g:if test="${session.systemUser}">
+                    <li>
+                        <a>
+                            ${session?.systemUser?.userName}/${session?.systemUser?.roleAttribute}
+                        </a>
+                    </li>
+                    <li><a href="${createLink(uri: '/home/logout')}">退出</a></li>
+                </g:if>
+                <g:else>
+                    <li><a href="${createLink(uri: '/home/loginUI')}">去登录</li>
+                </g:else>
             </ul>
         </div>
     </div>

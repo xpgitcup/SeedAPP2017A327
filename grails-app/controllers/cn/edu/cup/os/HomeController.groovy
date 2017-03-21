@@ -49,13 +49,13 @@ class HomeController {
     def login() {
         String userName = params.userName;
         String p = params.password.encodeAsMD5()
-        def user = SystemUser.findByUserNameAndPassword(userName, p)
-        if (user) {
-            session.user = user
+        def systemUser = SystemUser.findByUserNameAndPassword(userName, p)
+        if (systemUser) {
+            session.systemUser = systemUser
             //初始化用户菜单
             listSystemMenu()
             //在会话中登记用户
-            registeUserInSession(user)
+            registeUserInSession(systemUser)
             systemLogService.recordLog(session, request, params)
         }
         redirect(uri: "/")
@@ -73,14 +73,14 @@ class HomeController {
         def pscontext = request.session.servletContext
         Map serviceMap = pscontext.getAttribute("userList")
         if (!serviceMap) {
-            def userList = new HashMap()
-            pscontext.putAt("userList", userList)
-            serviceMap = userList
+            def systemUserList = new HashMap()
+            pscontext.putAt("systemUserList", systemUserList)
+            serviceMap = systemUserList
         }
         //登记用户
         serviceMap.putAt(user.userName, session)
 
-        systemCommonService.updateUserList(request)
+        systemCommonService.updateSystemUserList(request)
     }
 
     def index() { }

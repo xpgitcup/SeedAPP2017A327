@@ -24,7 +24,7 @@
     border-radius: 6px;
     background-position: 0.7em center;
     background-repeat: no-repeat;
-    background-image: url("../../../skin/house.png");
+    background-image: url("../../../../images/skin/house.png");
 }
 
 /*页眉右侧的显示信息*/
@@ -43,9 +43,11 @@
 }
 
 .applicationTitle {
-    font-family: '微软雅黑';
+    font-family: '微软雅黑 Light';
     font-size: 2.5em;
     color: white;
+    text-align: center;
+    margin-top: 10px;
 }
 
 #applicationBanner {

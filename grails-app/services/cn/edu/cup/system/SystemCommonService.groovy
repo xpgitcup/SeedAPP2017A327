@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 @Transactional
 class SystemCommonService {
 
-    def updateUserList(request) {
+    def updateSystemUserList(request) {
         def pscontext = request.session.servletContext
         Map serviceMap = pscontext.getAttribute("userList")
         if (serviceMap) {

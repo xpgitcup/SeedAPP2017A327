@@ -19,7 +19,7 @@ class OperationSystemInterceptor {
             println("跳转...")
             redirect(controller: "home", action: "loginUI")
         } else {
-            systemCommonService.updateUserList(request)
+            systemCommonService.updateSystemUserList(request)
             if (params.size()>0) {
                 println("记录日志...")
                 systemLogService.recordLog(session, request, params)

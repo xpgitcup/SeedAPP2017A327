@@ -19,7 +19,7 @@ class SystemLogService {
         SystemLog log = new SystemLog();
         log.sessionId = session.getId();
         log.actionDate = new Date();
-        log.userName = session.user.userName;
+        log.userName = session.systemUser.userName;
         log.hostIP = request.getRemoteAddr();
         def pps = "${ps}"
         if (pps.length()>100) {
