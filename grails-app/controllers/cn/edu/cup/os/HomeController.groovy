@@ -9,11 +9,11 @@ class HomeController {
 
     private void listSystemMenu() {
         //根据用户的属性，设置菜单
-        params.user = session.user
-        def menuItems = systemCommonService.getAllTopLevelMenus(params)
-        println("${menuItems}")
+        params.user = session.systemUser
+        def systemMenuList = systemCommonService.getAllTopLevelMenus(params)
+        println("${systemMenuList}")
         def subMenuItems = []
-        menuItems.eachWithIndex { Object entry, int i ->
+        systemMenuList.eachWithIndex { Object entry, int i ->
             def ms = []
             entry.menuItems.each() { e ->
                 ms.add(e)
@@ -23,7 +23,9 @@ class HomeController {
         //在会话中保存第二级菜单
         session.subMenuItems = subMenuItems
         //在会话中保存第一级菜单
-        session.systemMenuList = menuItems
+        session.systemMenuList = systemMenuList
+        println("${systemMenuList}")
+
     }
 
     /*
@@ -31,7 +33,7 @@ class HomeController {
     * */
     def logout() {
         def pscontext = request.session.servletContext
-        Map serviceMap = pscontext.getAttribute("userList")
+        Map serviceMap = pscontext.getAttribute("systemUserList")
         if (session.user) {
             systemLogService.recordLog(session, request, params)
             serviceMap.remove(session.user.userName)
@@ -71,7 +73,7 @@ class HomeController {
     * */
     def registeUserInSession(user) {
         def pscontext = request.session.servletContext
-        Map serviceMap = pscontext.getAttribute("userList")
+        Map serviceMap = pscontext.getAttribute("systemUserList")
         if (!serviceMap) {
             def systemUserList = new HashMap()
             pscontext.putAt("systemUserList", systemUserList)

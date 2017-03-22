@@ -239,7 +239,7 @@ class InitService {
         if (SystemTitle.count()<1) {
             def systemTitle = new SystemTitle(
                     applicationTitle: "种子程序",
-                    applicationLogo: "sylogo.gif"
+                    applicationLogo: "cuplogoA.png"
             )
             systemTitle.save(true)
         }

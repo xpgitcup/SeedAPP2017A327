@@ -22,7 +22,7 @@ class OnlineUserCountListener  implements HttpSessionListener{
         if (s != null) {
             ServletContext ctx = s.getServletContext();
             if (ctx != null) {
-                Map serviceMap = (Map) ctx.getAttribute("userList");
+                Map serviceMap = (Map) ctx.getAttribute("systemUserList");
                 if (serviceMap != null) {
                     SystemUser user = (SystemUser) serviceMap.get(s);
                     serviceMap.remove(s.id);

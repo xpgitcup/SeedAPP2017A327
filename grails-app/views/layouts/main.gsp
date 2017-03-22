@@ -46,7 +46,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar">??</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
@@ -65,23 +65,35 @@
         <!-- 这里插入导航按钮 -->
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
             <ul class="nav navbar-nav navbar-right">
-                <!-- 插入共同的菜单 -->
-                <!-- 下面插入各个具体页面各自的菜单 -->
-                <g:pageProperty name="page.nav"/>
-                <!-- 显示当前用户 -->
-                <g:if test="${session.systemUser}">
-                    <li>
-                        <a>
-                            ${session?.systemUser?.userName}/${session?.systemUser?.roleAttribute}
-                        </a>
+            <!-- 插入共同的菜单 -->
+            <!--这里显示保存在会话中的各个菜单-->
+                <g:each in="${session.systemMenuList}" status="i" var="menuItem">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">${menuItem.menuContext}<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <g:each in="${session.subMenuItems[i]}" status="j" var="subMenuItem">
+                                <li>
+                                    <a href="${createLink(uri: '/' + subMenuItem.menuAction)}">
+                                        ${subMenuItem.menuContext}
+                                    </a>
+                                </li>
+                            </g:each>
+                        </ul>
                     </li>
+                </g:each>
+            <!-- 显示当前用户 -->
+                <g:if test="${session.systemUser}">
                     <li><a href="${createLink(uri: '/home/logout')}">退出</a></li>
                 </g:if>
                 <g:else>
                     <li><a href="${createLink(uri: '/home/loginUI')}">去登录</li>
                 </g:else>
-            </ul>
         </div>
+        <!-- 下面插入各个具体页面各自的菜单 -->
+        <g:pageProperty name="page.nav"/>
+    </ul>
+
     </div>
 </div>
 
@@ -89,7 +101,19 @@
 <g:layoutBody/>
 
 <!-- 这里是页脚 -->
-<div class="footer" role="contentinfo"></div>
+<div id="footer" role="contentinfo">
+    <ul class="nav navbar-right">
+        <li>
+            当前用户：${session?.systemUser?.userName}[${session?.systemUser?.roleAttribute}]
+        </li>
+        <li>
+            在线:${session?.onlineCount}人，
+        </li>
+        <li>
+            ${session?.systemUserList}
+        </li>
+    </ul>
+</div>
 
 <div id="spinner" class="spinner" style="display:none;">
     <g:message code="spinner.alt" default="Loading&hellip;"/>
