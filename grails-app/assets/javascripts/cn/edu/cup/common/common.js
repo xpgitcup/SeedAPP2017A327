@@ -2,6 +2,19 @@
  * Created by LiXiaoping on 2017/1/12.
  */
 
+var pageSize = 10
+
+/*
+ * Cookie读取，如果有，就读取；如果没有，赋值为1
+ * */
+function readCookie(cName, defaultValue) {
+    var result = $.cookie(cName);
+    if (!result) {
+        result = defaultValue;
+    }
+    return result
+}
+
 /*
  * 分页计算函数
  * */
@@ -14,6 +27,32 @@ function getParams(pageNumber, pageSize) {
     }
     var params = "?offset=" + offset + "&max=" + pageSize
     return params
+}
+
+/*
+ * 通用ajax函数，统计某个数值
+ * */
+function ajaxCalculate(url) {
+    console.info("开始计算--" + url);
+    var result = 0;
+    $.ajax({
+        type: 'POST',
+        url: url,
+        async: false,
+        success: function (data, textStatus) {
+            console.info("ajax状态：" + textStatus);
+            console.info("ajax结果：" + data);
+            console.info("ajax结果：" + data.count);
+            result = parseInt(data.count);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.info(XMLHttpRequest);
+            console.info(textStatus);
+            console.info(errorThrown);
+        }
+    });
+    console.info("返回的结果：" + result);
+    return result;
 }
 
 /*

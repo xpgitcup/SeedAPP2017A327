@@ -10,6 +10,9 @@
 
     <asset:stylesheet src="application.css"/>
 
+    <!--引入bootstrap的相关内容-->
+    <aseet:stylesheet src="bootstrap.css"/>
+
     <!--引入easyui的相关内容-->
     <asset:stylesheet src="easyui/themes/default/easyui.css"/>
     <asset:stylesheet src="easyui/themes/icon.css"/>

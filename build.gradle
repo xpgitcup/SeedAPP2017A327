@@ -52,6 +52,13 @@ dependencies {
     //runtime "com.h2database:h2"
     runtime "mysql:mysql-connector-java:5.1.35" //原来5.1.29，升级到5.1.35
 
+    //------------------------------------------------------------------------------------------------------------------
+    //增加对Cookie的支持
+    compile 'org.grails.plugins:cookie:2.0.5'
+    //增加对jxl的支持
+    //compile "org.grails.plugins:jxl:0.54" //--这个不行了
+    compile "net.sourceforge.jexcelapi:jxl:2.6.12"
+
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
