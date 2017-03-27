@@ -1,9 +1,6 @@
 /**
  * Created by LiXiaoping on 2017/2/26.
  */
-/**
- * Created by LiXiaoping on 2017/2/23.
- */
 
 var displayTreeSystemMenuDiv;
 var paginationSystemMenuDiv;

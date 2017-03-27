@@ -17,7 +17,7 @@
 
 <body>
 <div class="container">
-    <div class="row clearfix">
+    <div class="row-fluid">
         <div class="col-md-4 column">
             <div class="panel panel-default">
                 <div class="nav">
